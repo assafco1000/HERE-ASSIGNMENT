@@ -1,0 +1,46 @@
+.square {
+    border: 1px solid darkslategray;
+    border-radius: 2px;
+    width: 150px;
+    height: 150px;
+    display: table-cell;
+    margin: 5px;
+    text-align: center;
+    line-height:  150px;
+    font-size: 60px;
+    color: #000088;
+    background: #e5eaef;
+}
+
+.Board {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    //transform: translateY(-50%);
+    //margin: 5% 25% 45% 25%;
+}
+
+.overlay {
+    width: 100%;
+    z-index: 999999;
+    background-color: lightgray;
+    opacity: 0.95;
+    position: fixed;
+    top: 0px;
+    height: 100%;
+    display: none;
+    padding-top: 100px;
+}
+
+.overlay.shown {
+    display: block;
+}
+.overlay button {
+    position: relative;
+    top: 250px;
+    width: 200px;
+    height:50px;
+}
