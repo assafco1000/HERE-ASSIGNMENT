@@ -1,15 +1,13 @@
 import React from 'react';
 import {isWinner, checkIsBoardFull} from './utils/gameUtils.js';
 import {CONTENT_TYPES, PLAYERS, WINNER_STATE} from './utils/consts.js';
-
-const BOARD_SIZE = 3;
-
+import {GameOver} from './components/GameOver.js';
 
 class Board extends React.Component {
 
      createEmptyBoard () {
          let squares = [];
-         for (let i=0;i<BOARD_SIZE*BOARD_SIZE;i++) {
+         for (let i=0;i<9;i++) {
              squares.push(
                 CONTENT_TYPES.NONE
              );
@@ -73,11 +71,7 @@ class Board extends React.Component {
 
         return (
             <div className="Game">
-                <div className={"overlay " + (this.state.winner !== WINNER_STATE.NONE ? "shown" : "hidden")}>
-                     {(this.state.winner !== WINNER_STATE.NONE)? <h2>{playerName} is the winner!</h2>: null}
-                    <button onClick={() => this.startGame()}>RESTART GAME</button>
-                </div>
-
+                {(this.state.winner !== WINNER_STATE.NONE)? <GameOver winner={this.state.winner} player={playerName} onStartGame={() => {this.startGame()}}/>: null}
                 {this.state.winner === WINNER_STATE.NONE ? <h2>{playerName} turn</h2> : null}
                 <div className="Board">
                     <table>

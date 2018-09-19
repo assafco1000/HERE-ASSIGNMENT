@@ -31,15 +31,15 @@ class Game extends React.Component {
         return (
             <div className="App">
                 <div className={this.state.showWelcomeScreen? 'shown': 'hidden'}>
-                    <div>
-                        <label>PLYAER 1:</label>
-                        <input type="text" value={this.state.player1} name="player1" onChange={this.handlePlayerName}/>
+                    <div className="form-group row">
+                        <label className="col-sm-5 control-label" for="player1">PLYAER 1:</label>
+                        <input className="col-sm-3 form-control" type="text" value={this.state.player1} name="player1" id="player1" onChange={this.handlePlayerName}/>
                     </div>
-                    <div>
-                        <label>PLYAER 2:</label>
-                        <input type="text" value={this.state.player2} name="player2" onChange={this.handlePlayerName}/>
+                    <div className="form-group row">
+                        <label className="col-sm-5 control-label" for="player2">PLYAER 2:</label>
+                        <input className="col-sm-3 form-control" type="text" value={this.state.player2} name="player2" id="player2" onChange={this.handlePlayerName}/>
                     </div>
-                    <button onClick={() => this.startGame()}>Start Game</button>
+                    <button className="btn btn-success" onClick={() => this.startGame()}>Start Game</button>
                 </div>
                 {!this.state.showWelcomeScreen? <Board player1={this.state.player1} player2={this.state.player2}/> : null}
             </div>
