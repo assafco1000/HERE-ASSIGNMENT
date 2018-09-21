@@ -44,3 +44,6 @@
 .App .form-group.row label {
     text-align: right;
 }
+.App.jumbotron.table {
+    width: 100%;
+}

@@ -1,7 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import {isWinner, checkIsBoardFull} from './utils/gameUtils.js';
 import {CONTENT_TYPES, PLAYERS, WINNER_STATE} from './utils/consts.js';
 import {GameOver} from './components/GameOver.js';
+import { addPoint } from './actions';
 
 class Board extends React.Component {
 
@@ -24,7 +26,9 @@ class Board extends React.Component {
         }
     }
 
-
+    getPlayerName() {
+        return (this.state.turn === PLAYERS.PLAYER1)? this.props.player1 : this.props.player2;
+    }
 
     handleCellClick (cell,index) {
         let board = this.state.squares;
@@ -39,6 +43,7 @@ class Board extends React.Component {
 
             if (winner) {
                 winner = this.state.turn === PLAYERS.PLAYER1 ? WINNER_STATE.PLAYER1WIN : WINNER_STATE.PLAYER2WIN;
+                this.props.addPoint(this.getPlayerName());
             } else {
                 winner = WINNER_STATE.NONE;
                 if (checkIsBoardFull(board)) {
@@ -67,12 +72,12 @@ class Board extends React.Component {
         let rowElements = this.state.squares.map((cell, index) => {
             return <td key={index} onClick={() => this.handleCellClick(cell,index)} className="square">{cell}</td>
         });
-        const playerName = (this.state.turn === PLAYERS.PLAYER1)? this.props.player1 : this.props.player2;
+
 
         return (
             <div className="Game">
-                {(this.state.winner !== WINNER_STATE.NONE)? <GameOver winner={this.state.winner} player={playerName} onStartGame={() => {this.startGame()}}/>: null}
-                {this.state.winner === WINNER_STATE.NONE ? <h2>{playerName} turn</h2> : null}
+                {(this.state.winner !== WINNER_STATE.NONE)? <GameOver winner={this.state.winner} player={this.getPlayerName()} onStartGame={() => {this.startGame()}}/>: null}
+                {this.state.winner === WINNER_STATE.NONE ? <h2>{this.getPlayerName()} turn</h2> : null}
                 <div className="Board">
                     <table>
                         <tbody>
@@ -100,4 +105,11 @@ class Board extends React.Component {
     }
 }
 
-export default Board;
+const mapDispatchToProps = dispatch => ({
+    addPoint: (player) => dispatch(addPoint(player))
+});
+
+export default connect(
+    state => {},
+    mapDispatchToProps
+)(Board)
