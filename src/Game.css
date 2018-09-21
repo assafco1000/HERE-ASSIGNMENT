@@ -6,44 +6,29 @@
     display: table-cell;
     text-align: center;
     font-size: 60px;
-    color: #000088;
+    color: #5f477b;
     background: #e5eaef;
 }
 
 .Board {
-    width: 500px;
-    height: 500px;
+    width: 450px;
+    height: 450px;
     position: relative;
     top: 50%;
     left: 50%;
     transform: translateX(-50%);
 }
-
-.overlay {
-    width: 100%;
-    z-index: 999999;
-    background-color: lightgray;
-    opacity: 0.95;
-    position: fixed;
-    top: 0px;
-    height: 100%;
-    display: block;
-    padding-top: 100px;
-}
-
-.overlay.shown {
-    display: block;
-}
-.overlay button {
-    position: relative;
-    top: 250px;
-    width: 200px;
-    height:50px;
+.Board table {
+    border-collapse: separate;
+    border-radius: 5px;
 }
 
 .App .form-group.row label {
     text-align: right;
 }
-.App.jumbotron.table {
-    width: 100%;
+.App .jumbotron {
+    height: 250px;
+}
+.App .jumbotron h4 {
+    color: #5f477b;
 }

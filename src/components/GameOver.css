@@ -1,0 +1,22 @@
+.overlay {
+    width: 100%;
+    z-index: 999999;
+    background-color: lightgray;
+    opacity: 0.95;
+    position: fixed;
+    top: 0px;
+    height: 100%;
+    display: block;
+    padding-top: 100px;
+    color: #5f477b;
+}
+
+.overlay.shown {
+    display: block;
+}
+.overlay button {
+    position: relative;
+    top: 250px;
+    width: 200px;
+    height:50px;
+}

@@ -105,11 +105,16 @@ class Board extends React.Component {
     }
 }
 
+const mapStateToProps = state => ({
+    player1: state.player1.name,
+    player2: state.player2.name
+});
+
 const mapDispatchToProps = dispatch => ({
     addPoint: (player) => dispatch(addPoint(player))
 });
 
 export default connect(
-    state => {},
+    mapStateToProps,
     mapDispatchToProps
 )(Board)

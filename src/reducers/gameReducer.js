@@ -1,4 +1,4 @@
-const gameReducer = (state = {}, action) => {
+const gameReducer = (state = {}, action={payload:null}) => {
     switch (action.type) {
         case 'START_GAME':
             return action.payload;
@@ -27,6 +27,6 @@ const gameReducer = (state = {}, action) => {
                 player2: {name: 'player2', score: 0}
             }
     }
-}
+};
 
 export default gameReducer
