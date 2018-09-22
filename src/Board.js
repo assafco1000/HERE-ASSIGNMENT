@@ -21,7 +21,6 @@ class Board extends React.Component {
         super(props);
         this.state = {
             squares: this.createEmptyBoard(),
-            isActive: true,
             turn: PLAYERS.PLAYER1,
             winner: WINNER_STATE.NONE
         }
@@ -78,7 +77,7 @@ class Board extends React.Component {
         return (
             <div className="Game">
                 {(this.state.winner !== WINNER_STATE.NONE)? <GameOver winner={this.state.winner} player={this.getPlayerName()} onStartGame={() => {this.startGame()}}/>: null}
-                {this.state.winner === WINNER_STATE.NONE ? <h2>{this.getPlayerName()} turn</h2> : null}
+                {this.state.winner === WINNER_STATE.NONE ? <h2>{this.getPlayerName()}'s turn</h2> : null}
                 <div className="Board">
                     <table>
                         <tbody>

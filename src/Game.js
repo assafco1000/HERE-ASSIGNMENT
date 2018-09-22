@@ -34,9 +34,8 @@ class Game extends React.Component {
     }
 
     render() {
-
         return (
-            <div className="App row">
+            <div className="Game row">
                 <div className="jumbotron col-lg-3">
                     <h4>SCOREBOARD</h4>
                     <table className="col-sm-12">
@@ -54,14 +53,14 @@ class Game extends React.Component {
                 <div className={"padding-lg col-lg-7 " + (this.state.showWelcomeScreen? 'shown': 'hidden')}>
                     <div className="mb-4"><h5>Please insert the players' names:</h5></div>
                     <div className="form-group row">
-                        <label className="col-sm-5 col-form-label" htmlFor="player1">PLYAER 1:</label>
+                        <label className="col-sm-5 col-form-label" htmlFor="player1">PLAYER 1:</label>
                         <input className="col-sm-3 form-control" type="text" value={this.props.player1.name} name="player1" id="player1" onChange={this.handlePlayerName}/>
                     </div>
                     <div className="form-group row">
-                        <label className="col-sm-5 col-form-label" htmlFor="player2">PLYAER 2:</label>
+                        <label className="col-sm-5 col-form-label" htmlFor="player2">PLAYER 2:</label>
                         <input className="col-sm-3 form-control" type="text" value={this.props.player2.name} name="player2" id="player2" onChange={this.handlePlayerName}/>
                     </div>
-                    <button className="btn btn-success" onClick={() => this.startGame()}>Start Game</button>
+                    <button className="btn btn-success" disabled={!this.props.player1.name || !this.props.player2.name} onClick={() => this.startGame()}>Start Game</button>
                 </div>
                {this.state.showWelcomeScreen ? null
                    : <div className={"col-lg-8 " + (!this.state.showWelcomeScreen? 'shown': 'hidden')}>

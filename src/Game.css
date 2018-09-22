@@ -1,9 +1,14 @@
-.App .form-group.row label {
+.Game .form-group.row label {
     text-align: right;
 }
-.App .jumbotron {
+.Game .jumbotron {
     height: 250px;
 }
-.App .jumbotron h4 {
+.Game .jumbotron h4 {
     color: #5f477b;
+}
+
+.Game {
+    padding: 10px 0px 10px 0px;
+    margin: 0px;
 }
