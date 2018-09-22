@@ -4,6 +4,7 @@ import {isWinner, checkIsBoardFull} from './utils/gameUtils.js';
 import {CONTENT_TYPES, PLAYERS, WINNER_STATE} from './utils/consts.js';
 import {GameOver} from './components/GameOver.js';
 import { addPoint } from './actions';
+import './Board.css';
 
 class Board extends React.Component {
 

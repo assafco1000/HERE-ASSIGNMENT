@@ -17,8 +17,8 @@ class Game extends React.Component {
 
     handlePlayerName(evt) {
         this.props.setNames({
-            player1: {name: (evt.target.name==='player1'? evt.target.value: this.props.player1.name), score: 0},
-            player2: {name: (evt.target.name==='player2'? evt.target.value: this.props.player2.name), score: 0}
+            player1: {name: (evt.target.name==='player1'? evt.target.value : this.props.player1.name), score: 0},
+            player2: {name: (evt.target.name==='player2'? evt.target.value : this.props.player2.name), score: 0}
         })
     }
 
@@ -30,14 +30,14 @@ class Game extends React.Component {
     }
 
     playerToDisplayText(player) {
-        return player.name + ":" + player.score;
+        return player.name + ": " + player.score;
     }
 
     render() {
 
         return (
             <div className="App row">
-                <div className="jumbotron col-lg-2">
+                <div className="jumbotron col-lg-3">
                     <h4>SCOREBOARD</h4>
                     <table className="col-sm-12">
                         <tbody>
@@ -51,7 +51,7 @@ class Game extends React.Component {
                     </table>
                 </div>
 
-                <div className={"padding-lg col-lg-8 " + (this.state.showWelcomeScreen? 'shown': 'hidden')}>
+                <div className={"padding-lg col-lg-7 " + (this.state.showWelcomeScreen? 'shown': 'hidden')}>
                     <div className="mb-4"><h5>Please insert the players' names:</h5></div>
                     <div className="form-group row">
                         <label className="col-sm-5 col-form-label" htmlFor="player1">PLYAER 1:</label>
@@ -63,9 +63,12 @@ class Game extends React.Component {
                     </div>
                     <button className="btn btn-success" onClick={() => this.startGame()}>Start Game</button>
                 </div>
-                <div className={"col-lg-8 " + (!this.state.showWelcomeScreen? 'shown': 'hidden')}>
-                    {!this.state.showWelcomeScreen? <Board/> : null}
-                </div>
+               {this.state.showWelcomeScreen ? null
+                   : <div className={"col-lg-8 " + (!this.state.showWelcomeScreen? 'shown': 'hidden')}>
+                         <Board/>
+                     </div>
+               }
+
 
             </div>
         );
